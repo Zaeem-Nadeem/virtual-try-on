@@ -2,7 +2,9 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { ApiError } from "../utils/ApiError.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 import { User } from "../models/user.model.js";
+import {sendEmail} from '../utils/emailService.js'
 import jwt from "jsonwebtoken";
+import bcrypt from'bcryptjs'
 
 const generateAccessAndRefreshTokens = async(userId) => {
     try {
@@ -33,7 +35,6 @@ const registerUser = asyncHandler(async (req, res) => {
     if (existingUser) {
         throw new ApiError(409, "User with email or username already exists");
     }
-
     const user = await User.create({
         username: username.toLowerCase(),
         email,
@@ -136,12 +137,12 @@ const forgetPassword = asyncHandler(async (req, res) => {
     }
   
     // Generate an OTP
-    const otp = Math.floor(100000 + Math.random() * 900000).toString(); // 6-digit OTP
+    const otp = Math.floor(1000 + Math.random() * 9000).toString(); // 4-digit OTP
   
     // Save OTP and expiry time (15 minutes)
     user.resetPasswordOTP = otp;
     user.resetPasswordExpire = Date.now() + 15 * 60 * 1000; // 15-minute expiry for OTP
-    await user.save();
+    await user.save({validateBeforeSave:false});
   
     // Send OTP to user's email
     const message = `Your OTP for password reset is: ${otp}`;
@@ -165,14 +166,14 @@ const forgetPassword = asyncHandler(async (req, res) => {
       // Clear OTP if expired or invalid
       user.resetPasswordOTP = undefined;
       user.resetPasswordExpire = undefined; // Clear the expiration date as well
-      await user.save();
+      await user.save({validateBeforeSave:false});
   
       throw new ApiError(400, "Invalid or expired OTP");
     }
   
     // OTP is valid, clear the OTP and allow reset password
     user.resetPasswordOTP = undefined;
-    await user.save();
+    await user.save({validateBeforeSave:false});
   
     res.status(200).json(new ApiResponse(200, null, "OTP verified successfully"));
   });
@@ -193,7 +194,7 @@ const forgetPassword = asyncHandler(async (req, res) => {
     }
   
     // Update the password (hash the password before saving)
-    user.password = await bcrypt.hash(newPassword, 10);
+    user.password=newPassword
     await user.save();
   
     res.status(200).json(new ApiResponse(200, null, "Password reset successfully"));

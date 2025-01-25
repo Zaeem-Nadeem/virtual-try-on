@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --primary-color: #000000;
+  --background-color: #f5f5f5;
+  --error-color: #ff3b30;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  display: block;
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.auth-button {
+  width: 100%;
+  padding: 0.75rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.auth-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.otp-inputs {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.otp-input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1.25rem;
+}

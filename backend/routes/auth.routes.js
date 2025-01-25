@@ -2,7 +2,10 @@ import { Router } from "express";
 import {
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    forgetPassword,
+    verifyOtp,
+    resetPassword,
 } from "../controllers/auth.controller.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 

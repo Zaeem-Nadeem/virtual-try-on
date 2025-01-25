@@ -65,7 +65,6 @@ export const resetPassword = async (email, newPassword) => {
   try {
     const response = await api.post('/auth/reset-password', { email, newPassword });
     return response.data;
-  // eslint-disable-next-line no-unused-vars
   } catch (error) {
     console.log(error.message)
     throw new Error('Password reset failed');

@@ -3,7 +3,9 @@ import NavBar from "../components/NavBar";
 function Home() {
   return (
     <>
-      <NavBar />
+      <main className="w-full h-full">
+        <NavBar />
+      </main>
     </>
   );
 }

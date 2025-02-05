@@ -56,36 +56,40 @@ function VerifyOtp() {
   };
 
   return (
-    <div className="auth-container">
-      <Link to="/forgot-password" className="back-button">← Back</Link>
-      <h1 className="auth-title">Verify OTP</h1>
-      <p style={{ fontSize: '0.875rem', color: '#666', marginBottom: '1.5rem', textAlign: 'center' }}>
-        Enter the OTP sent to your email
-      </p>
-      <form onSubmit={handleSubmit}>
-        <div className="otp-inputs">
-          {otp.map((digit, index) => (
-            <input
-              key={index}
-              ref={inputRefs[index]}
-              type="text"
-              maxLength="1"
-              className="otp-input"
-              value={digit}
-              onChange={(e) => handleChange(index, e.target.value)}
-              onKeyDown={(e) => handleKeyDown(index, e)}
-              required
-            />
-          ))}
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-sm">
+        <Link to="/forgot-password" className="text-black text-sm mb-4 inline-block">← Back</Link>
+        <h1 className="text-2xl font-semibold mb-6">Verify OTP</h1>
+        <p className="text-sm text-gray-600 mb-6 text-center">
+          Enter the OTP sent to your email
+        </p>
+        <form onSubmit={handleSubmit}>
+          <div className="flex justify-between mb-4">
+            {otp.map((digit, index) => (
+              <input
+                key={index}
+                ref={inputRefs[index]}
+                type="text"
+                maxLength="1"
+                className="w-16 h-16 text-center text-2xl font-semibold border-b-2 border-gray-300 focus:outline-none focus:border-black"
+                value={digit}
+                onChange={(e) => handleChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+                required
+              />
+            ))}
+          </div>
+          {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
+          <button type="submit" className="w-full py-3 mt-4 bg-black text-white rounded-md hover:bg-gray-800 transition">
+            Verify OTP
+          </button>
+        </form>
+        <div className="text-center mt-4">
+          <span className="text-sm text-gray-600">Already a part of us? </span>
+          <Link to="/login" className="text-black text-sm">
+            Login
+          </Link>
         </div>
-        {error && <div className="error-message">{error}</div>}
-        <button type="submit" className="auth-button">Verify OTP</button>
-      </form>
-      <div style={{ textAlign: 'center', marginTop: '1rem' }}>
-        <span style={{ fontSize: '0.875rem', color: '#666' }}>already a part of us? </span>
-        <Link to="/login" className="auth-link" style={{ display: 'inline' }}>
-          login
-        </Link>
       </div>
     </div>
   );

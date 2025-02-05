@@ -13,7 +13,7 @@ const router = Router();
 
 router.route("/")
     .get(getAllProducts)
-    .post(verifyJWT, authorizeRoles("ADMIN"), upload.fields([{ name: "image" }, { name: "virtualTryOnModel" }]), createProduct);
+    .post(verifyJWT, authorizeRoles("ADMIN"), upload.fields([{ name: "images" }, { name: "virtualTryOnModel" }]), createProduct);
 
 router.route("/:id")
     .get(getProductById)

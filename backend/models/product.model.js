@@ -82,14 +82,14 @@ const productSchema = new mongoose.Schema({
             default: 0
         }
     },
-    specifications: {
-        lensWidth: Number,
-        bridgeWidth: Number,
-        templeLength: Number,
-        lensHeight: Number,
-        totalWidth: Number,
-        weight: Number
-    },
+    // specifications: {
+    //     lensWidth: Number,
+    //     bridgeWidth: Number,
+    //     templeLength: Number,
+    //     lensHeight: Number,
+    //     totalWidth: Number,
+    //     weight: Number
+    // },
     features: [{
         type: String
     }],
@@ -121,7 +121,7 @@ productSchema.index(
     }
 );
 
-// Compound indexes for common queries
+// Compound indexes for common queries  
 productSchema.index({ brand: 1, style: 1, price: 1 });
 productSchema.index({ frameShape: 1, color: 1, price: 1 });
 

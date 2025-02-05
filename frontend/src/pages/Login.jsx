@@ -25,7 +25,7 @@ function Login() {
           formData.password=""
       navigate('/dashboard');
     } catch (error) {
-          formData.email=""
+          formData.email="",
     formData.password=""
       setError(error.message);
       toast.error(error.message);

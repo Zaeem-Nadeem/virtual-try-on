@@ -58,7 +58,15 @@ function NavBar() {
           )}
         </div>
         <div className="flex gap-x-4">
-          <DynamicButton text="Try on Face in 3D" paddingX="px-5" paddingY="py-2" showIcon={true} Icon={Rotate3d} iconPosition="right" styles={{ base: "bg-black text-white" }} />
+          <DynamicButton
+            text="Try on Face in 3D"
+            paddingX="px-5"
+            paddingY="py-2"
+            showIcon={true}
+            Icon={Rotate3d}
+            iconPosition="right"
+            styles={{ base: "bg-black text-white" }}
+          />
         </div>
       </div>
     </>

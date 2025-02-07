@@ -30,11 +30,13 @@ app.use(cookieParser());
 import authRouter from "./routes/auth.routes.js";
 import productRouter from "./routes/product.routes.js";
 import categoryRouter from "./routes/category.routes.js";
+import orderRouter from "./routes/order.routes.js";
 
 // routes declaration
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/products", productRouter);
 app.use("/api/v1/categories", categoryRouter);
+app.use("/api/v1/orders", orderRouter);
 
 app.get('/',(_,res)=>{
     res.send("hello im running")

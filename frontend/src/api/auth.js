@@ -28,7 +28,6 @@ export const login = async (credentials) => {
     if (error.response?.status === 404) {
       throw new Error('User does not exist');
     } else if (error.response?.status === 401) {
-      console.log(error.response.data)
       throw new Error('Invalid email or password');
     }
     

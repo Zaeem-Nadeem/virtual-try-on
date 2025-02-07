@@ -13,13 +13,14 @@ const DynamicButton = ({
   onClick = () => {},
   styles = {},
   disabled = false,
+  customClasses,
 }) => {
   return (
     <button
       key={key}
       onClick={onClick}
       disabled={disabled}
-      className={`flex cursor-pointer items-center justify-center gap-2 
+      className={` ${customClasses} flex cursor-pointer items-center justify-center gap-2 
     ${paddingX || "px-4"} ${paddingY || "py-2"} rounded-lg transition-all 
     ${styles.base || "bg-blue-500 text-white"}
     ${disabled ? styles.disabled || "opacity-50 cursor-not-allowed" : ""}
@@ -53,6 +54,7 @@ DynamicButton.propTypes = {
   disabled: PropTypes.bool,
   paddingX: PropTypes.string,
   paddingY: PropTypes.string,
+  customClasses: PropTypes.string,
 };
 
 export default DynamicButton;

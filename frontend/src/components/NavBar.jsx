@@ -1,4 +1,4 @@
-import { Search, Truck, Heart, ShoppingBag, User, Rotate3d, Menu } from "lucide-react";
+import { Search, Truck, Heart, ShoppingBag, User, Rotate3d, Menu, CircleX } from "lucide-react";
 import DynamicButton from "./DynamicButton";
 import { useState } from "react";
 
@@ -24,7 +24,9 @@ function NavBar() {
             menuOpen ? "fixed md:static" : "hidden"
           } bg-(--overlay-color) p-4 md:p-0 rounded-4xl md:rounded-none outline-4 md:outline-none outline-white md:bg-transparent md:flex top-1/2 left-1/2 -translate-x-1/2 md:translate-0 -translate-y-1/2 z-50 gap-x-4`}
         >
-          <span className="block md:hidden text-center font-bold text-2xl mb-4 mt-2">Menu</span>
+          <span className="block relative md:hidden text-center font-bold text-2xl mb-4 mt-2">
+            Menu <CircleX className="fixed -top-1 -right-1" onClick={() => setMenuOpen(!menuOpen)} />{" "}
+          </span>
           {[
             { text: "Track Order", icon: Truck },
             { text: "Wishlist", icon: Heart },

@@ -1,24 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+@import "tailwindcss";
 
-:root {
-  --primary-color: #000000;
-  --background-color: #f5f5f5;
-  --error-color: #ff3b30;
+@font-face{
+  font-family: "Satoshi";
+  src: url("assets/fonts/Satoshi-Variable.ttf") format("truetype");
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+:root {
+  --primary-color: black;
+  --background-color: white;
+  --error-color: #ff3b30;
+  --success-color: #4caf50;
 }
 
 body {
+  font-family: "Satoshi", monospace;
+  font-weight: 400;
   background-color: var(--background-color);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .auth-container {

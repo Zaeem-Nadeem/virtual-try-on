@@ -40,3 +40,24 @@ export const authorizeRoles = (...roles) => {
         next();
     };
 };
+
+// Check if user is authenticated
+
+export const isAuthenticated = asyncHandler(async (req, res, next) => {
+    if (!req.user) {
+        throw new ApiError(401, "Please login to access this resource");
+    }
+    next();
+});
+
+// Validate user status
+
+export const validateUserStatus = asyncHandler(async (req, res, next) => {
+    const user = await User.findById(req.user._id);
+    
+    if (!user.isActive) {
+        throw new ApiError(403, "Your account has been deactivated");
+    }
+
+    next();
+});

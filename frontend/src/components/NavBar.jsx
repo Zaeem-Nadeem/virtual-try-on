@@ -53,7 +53,7 @@ function NavBar() {
       </div>
 
       <div className="w-full bg-[#fafafa] h-fit px-6 py-2 gap-4 justify-between items-center flex">
-        <div className="flex gap-x-4">
+        <div className="flex flex-wrap gap-y-2 md:gap-y-0 gap-x-4 text-nowrap">
           {["Kids Glasses", "Screen Glasses", "Zero Power", "Sunglasses", "Progressive", "Contact Lenses"].map(
             (text, index) => (
               <DynamicButton
@@ -68,7 +68,7 @@ function NavBar() {
             )
           )}
         </div>
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-4 text-nowrap">
           <DynamicButton
             text="Try on Face in 3D"
             paddingX="px-5"

@@ -32,6 +32,8 @@ import productRouter from "./routes/product.routes.js";
 import categoryRouter from "./routes/category.routes.js";
 import orderRouter from "./routes/order.routes.js";
 import adminRouter from "./routes/admin.routes.js";
+import cartRouter from "./routes/cart.routes.js";
+
 
 // routes declaration
 app.use("/api/v1/auth", authRouter);
@@ -39,7 +41,7 @@ app.use("/api/v1/products", productRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/orders", orderRouter);
 app.use("/api/v1/admin", adminRouter);
-
+app.use("/api/v1/cart", cartRouter);
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);

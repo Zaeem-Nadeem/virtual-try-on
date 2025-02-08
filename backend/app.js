@@ -35,6 +35,7 @@ import adminRouter from "./routes/admin.routes.js";
 import cartRouter from "./routes/cart.routes.js";
 import reviewRouter from "./routes/review.routes.js";
 import wishlistRouter from "./routes/wishlist.routes.js";
+import virtualTryOnRouter from "./routes/virtualTryOn.routes.js";
 
 // routes declaration
 app.use("/api/v1/auth", authRouter);
@@ -45,6 +46,7 @@ app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/cart", cartRouter);
 app.use("/api/v1/reviews", reviewRouter);
 app.use("/api/v1/wishlist", wishlistRouter);
+app.use("/api/v1/virtual-try-on", virtualTryOnRouter);
 
 // Error handling middleware
 app.use((err, req, res, next) => {

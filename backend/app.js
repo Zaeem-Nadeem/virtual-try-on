@@ -38,9 +38,7 @@ app.use("/api/v1/products", productRouter);
 app.use("/api/v1/categories", categoryRouter);
 app.use("/api/v1/orders", orderRouter);
 
-app.get('/',(_,res)=>{
-    res.send("hello im running")
-})
+
 // Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
